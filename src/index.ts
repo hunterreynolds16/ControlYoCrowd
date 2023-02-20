@@ -3,6 +3,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
+import type { Event } from './type';
+
 window.Webflow ||= [];
 window.Webflow.push(() => {
   const calendarElement = document.querySelector<HTMLDivElement>('[data-element="calendar"]');
@@ -19,7 +21,7 @@ window.Webflow.push(() => {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,listWeek',
     },
-    events: events,
+    events,
     eventClick(data) {
       alert(`User clicked the event ${data.event.title}`);
     },
@@ -30,18 +32,16 @@ window.Webflow.push(() => {
 const getEvents = (): Event[] => {
   const scripts = document.querySelectorAll<HTMLScriptElement>('[data-element="event-data"]');
   console.log({ scripts });
-  const events = [...scripts]
-    .map((script) => {
-      if (!script.textContent) {
-        return;
-      }
-      const event: Event = JSON.parse(script.textContent);
-      event.start = new Date(event.start);
-      event.end = new Date(event.end);
+  const events = [...scripts].map((script) => {
+    if (!script.textContent) {
+      return;
+    }
+    const event: Event = JSON.parse(script.textContent);
+    event.start = new Date(event.start);
+    event.end = new Date(event.end);
 
-      return event;
-    })
-    .filter(Boolean);
+    return event;
+  });
 
   return events;
 };
