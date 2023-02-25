@@ -11365,7 +11365,7 @@
     }
   });
 
-  // src/index.ts
+  // src/calendar-customize.ts
   window.Webflow ||= [];
   window.Webflow.push(() => {
     const calendarElement = document.querySelector('[data-element="calendar"]');
@@ -11379,7 +11379,7 @@
       headerToolbar: {
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,listPlugin"
+        right: "dayGridMonth,timeGridWeek,listWeek"
       },
       events,
       eventClick(data) {
@@ -11394,9 +11394,10 @@
       const event = JSON.parse(script.textContent);
       event.start = new Date(event.start);
       event.end = new Date(event.end);
+      event.allDay = true;
       return event;
     });
     return events;
   };
 })();
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=calendar-customize.js.map

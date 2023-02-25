@@ -19,7 +19,7 @@ window.Webflow.push(() => {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,listPlugin',
+      right: 'dayGridMonth,timeGridWeek,listWeek',
     },
 
     events,
@@ -37,6 +37,9 @@ const getEvents = (): Event[] => {
     const event: Event = JSON.parse(script.textContent!);
     event.start = new Date(event.start);
     event.end = new Date(event.end);
+
+    // set allDay property to true
+    event.allDay = true;
 
     return event;
   });

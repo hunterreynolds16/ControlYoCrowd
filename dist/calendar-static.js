@@ -11365,38 +11365,34 @@
     }
   });
 
-  // src/index.ts
+  // src/calendar-static.ts
   window.Webflow ||= [];
   window.Webflow.push(() => {
     const calendarElement = document.querySelector('[data-element="calendar"]');
     if (!calendarElement)
       return;
-    const events = getEvents();
-    console.log({ events });
     const calendar = new Calendar(calendarElement, {
       plugins: [index, index3, index2],
       initialView: "dayGridMonth",
       headerToolbar: {
-        left: "prev,next today",
+        left: "prevYear prev,next nextYear today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,listPlugin"
+        right: "dayGridMonth,timeGridWeek,listWeek"
       },
-      events,
-      eventClick(data) {
-        alert(`User clicked the event ${data.event.title}`);
-      }
+      events: [
+        {
+          title: "BCH237",
+          start: "2023-02-12T10:30:00",
+          end: "2023-02-13T11:30:00",
+          extendedProps: {
+            department: "BioChemistry"
+          },
+          description: "Lecture"
+        }
+      ],
+      className: "testClass"
     });
     calendar.render();
   });
-  var getEvents = () => {
-    const scripts = document.querySelectorAll('[data-element="event-data"]');
-    const events = [...scripts].map((script) => {
-      const event = JSON.parse(script.textContent);
-      event.start = new Date(event.start);
-      event.end = new Date(event.end);
-      return event;
-    });
-    return events;
-  };
 })();
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=calendar-static.js.map
