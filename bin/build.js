@@ -6,7 +6,11 @@ const BUILD_DIRECTORY = 'dist';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 // Config entrypoint files
-const ENTRY_POINTS = ['src/index.ts', 'src/calendar-customize.ts', 'src/calendar-static.ts'];
+const ENTRY_POINTS = [
+  'src/fullCalendar/calendar-customize.ts',
+  'src/fullCalendar/calendar-static.ts',
+  'src/splide/reviews-slider.js',
+];
 
 // Config dev serving
 const LIVE_RELOAD = !PRODUCTION;

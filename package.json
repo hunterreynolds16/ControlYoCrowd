@@ -57,6 +57,8 @@
     "@fullcalendar/daygrid": "^6.1.4",
     "@fullcalendar/list": "^6.1.4",
     "@fullcalendar/timegrid": "^6.1.4",
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "git": "^0.1.5"
   }
 }

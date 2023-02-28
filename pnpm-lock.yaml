@@ -11,6 +11,8 @@ specifiers:
   '@fullcalendar/list': ^6.1.4
   '@fullcalendar/timegrid': ^6.1.4
   '@playwright/test': ^1.30.0
+  '@splidejs/splide': ^4.1.4
+  '@splidejs/splide-extension-auto-scroll': ^0.5.3
   '@typescript-eslint/eslint-plugin': ^5.51.0
   '@typescript-eslint/parser': ^5.51.0
   cross-env: ^7.0.3
@@ -29,6 +31,8 @@ dependencies:
   '@fullcalendar/daygrid': 6.1.4_@fullcalendar+core@6.1.4
   '@fullcalendar/list': 6.1.4_@fullcalendar+core@6.1.4
   '@fullcalendar/timegrid': 6.1.4_@fullcalendar+core@6.1.4
+  '@splidejs/splide': 4.1.4
+  '@splidejs/splide-extension-auto-scroll': 0.5.3
   git: 0.1.5
 
 devDependencies:
@@ -607,6 +611,14 @@ packages:
       '@types/node': 18.11.18
       playwright-core: 1.30.0
     dev: true
+
+  /@splidejs/splide-extension-auto-scroll/0.5.3:
+    resolution: {integrity: sha512-vPJ8Tn4uebnHa6scBcIypW154HTDenkazX9Nw8T1na44n7OtLoz40R4RoirteV7taPWW7w7ZZPCiEpi2ReYFAQ==}
+    dev: false
+
+  /@splidejs/splide/4.1.4:
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+    dev: false
 
   /@types/is-ci/3.0.0:
     resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
