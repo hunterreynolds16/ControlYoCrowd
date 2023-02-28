@@ -909,9 +909,9 @@
     function getIn(page) {
       var Controller2 = Components2.Controller;
       var index = Controller2.toIndex(page);
-      var max3 = Controller2.hasFocus() ? 1 : options.perPage;
+      var max2 = Controller2.hasFocus() ? 1 : options.perPage;
       return filter(function(Slide2) {
-        return between(Slide2.index, index, index + max3 - 1);
+        return between(Slide2.index, index, index + max2 - 1);
       });
     }
     function getAt(index) {
@@ -1259,17 +1259,17 @@
       var focus2 = options.focus;
       return focus2 === "center" ? (listSize() - slideSize(index, true)) / 2 : +focus2 * slideSize(index) || 0;
     }
-    function getLimit(max3) {
-      return toPosition(max3 ? Components2.Controller.getEnd() : 0, !!options.trimSpace);
+    function getLimit(max2) {
+      return toPosition(max2 ? Components2.Controller.getEnd() : 0, !!options.trimSpace);
     }
     function canShift(backwards) {
       var shifted = orient(shift(getPosition(), backwards));
       return backwards ? shifted >= 0 : shifted <= list[resolve("scrollWidth")] - rect(track)[resolve("width")];
     }
-    function exceededLimit(max3, position) {
+    function exceededLimit(max2, position) {
       position = isUndefined(position) ? getPosition() : position;
-      var exceededMin = max3 !== true && orient(position) < orient(getLimit(false));
-      var exceededMax = max3 !== false && orient(position) > orient(getLimit(true));
+      var exceededMin = max2 !== true && orient(position) < orient(getLimit(false));
+      var exceededMax = max2 !== false && orient(position) > orient(getLimit(true));
       return exceededMin || exceededMax;
     }
     return {
@@ -2084,13 +2084,13 @@
     function createPagination() {
       var length = Splide2.length;
       var classes = options.classes, i18n = options.i18n, perPage = options.perPage;
-      var max3 = hasFocus() ? Controller2.getEnd() + 1 : ceil(length / perPage);
+      var max2 = hasFocus() ? Controller2.getEnd() + 1 : ceil(length / perPage);
       list = placeholder || create("ul", classes.pagination, Elements2.track.parentElement);
       addClass(list, paginationClasses = CLASS_PAGINATION + "--" + getDirection());
       setAttribute(list, ROLE, "tablist");
       setAttribute(list, ARIA_LABEL, i18n.select);
       setAttribute(list, ARIA_ORIENTATION, getDirection() === TTB ? "vertical" : "");
-      for (var i = 0; i < max3; i++) {
+      for (var i = 0; i < max2; i++) {
         var li = create("li", null, list);
         var button = create("button", {
           class: classes.page,
@@ -2578,45 +2578,11 @@
   Splide.defaults = {};
   Splide.STATES = STATES;
 
-  // node_modules/.pnpm/@splidejs+splide-extension-auto-scroll@0.5.3/node_modules/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.esm.js
-  function slice$1(arrayLike, start, end) {
-    return Array.prototype.slice.call(arrayLike, start, end);
-  }
-  function apply$1(func) {
-    return func.bind.apply(func, [null].concat(slice$1(arguments, 1)));
-  }
-  function typeOf$1(type, subject) {
-    return typeof subject === type;
-  }
-  var isArray$1 = Array.isArray;
-  apply$1(typeOf$1, "function");
-  apply$1(typeOf$1, "string");
-  apply$1(typeOf$1, "undefined");
-  function slice2(arrayLike, start, end) {
-    return Array.prototype.slice.call(arrayLike, start, end);
-  }
-  function apply2(func) {
-    return func.bind(null, ...slice2(arguments, 1));
-  }
-  function typeOf2(type, subject) {
-    return typeof subject === type;
-  }
-  var isArray2 = Array.isArray;
-  apply2(typeOf2, "function");
-  apply2(typeOf2, "string");
-  var isUndefined2 = apply2(typeOf2, "undefined");
-  var { min: min2, max: max2, floor: floor2, ceil: ceil2, abs: abs2 } = Math;
-
   // src/splide/reviews-slider.js
   var splide = new Splide(".splide", {
     type: "loop",
-    drag: "free",
-    focus: "center",
-    perPage: 3,
-    autoScroll: {
-      autoStart: true,
-      speed: 1
-    }
+    arrows: false,
+    perPage: 1
   });
   splide.mount();
 })();
@@ -2626,14 +2592,6 @@
   (*!
    * Splide.js
    * Version  : 4.1.4
-   * License  : MIT
-   * Copyright: 2022 Naotoshi Fujita
-   *)
-
-@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.esm.js:
-  (*!
-   * @splidejs/splide-extension-auto-scroll
-   * Version  : 0.5.3
    * License  : MIT
    * Copyright: 2022 Naotoshi Fujita
    *)
